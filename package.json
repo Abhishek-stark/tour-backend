@@ -1,0 +1,58 @@
+{
+    "name": "shopping_website",
+    "version": "1.0.0",
+    "description": "Shopping website for saving money and time",
+    "main": "app.js",
+    "scripts": {
+
+        "start": "node server.js",
+        "dev": "nodemon server.js"
+
+    },
+    "author": "Abhishek Singh",
+    "license": "ISC",
+    "dependencies": {
+        "@babel/polyfill": "^7.12.1",
+        "axios": "^0.27.2",
+        "bcryptjs": "^2.4.3",
+        "body-parser": "^1.20.0",
+        "compression": "^1.7.4",
+        "config": "^3.3.7",
+        "cookie": "^0.5.0",
+        "cookie-parser": "^1.4.6",
+        "cors": "^2.8.5",
+        "express": "^4.18.1",
+        "express-mongo-sanitize": "^2.2.0",
+        "express-rate-limit": "^6.4.0",
+        "helmet": "^5.0.2",
+        "hpp": "^0.2.3",
+        "jsonwebtoken": "^8.5.1",
+        "mongoose": "^5.13.14",
+        "morgan": "^1.10.0",
+        "multer": "^1.4.5-lts.1",
+        "nodemailer": "^6.8.0",
+        "nodemon": "^2.0.19",
+        "pug": "^3.0.2",
+        "sharp": "^0.31.0",
+        "sib-api-v3-sdk": "^8.4.2",
+        "slugify": "^1.6.5",
+        "socket.io": "^4.5.1",
+        "stripe": "^10.8.0",
+        "validator": "^13.7.0",
+        "xss-clean": "^0.1.1"
+    },
+    "devDependencies": {
+        "cross-env": "^7.0.3",
+        "dotenv": "^16.0.1",
+        "eslint": "^8.15.0",
+        "eslint-config-airbnb": "^19.0.4",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-plugin-import": "^2.26.0",
+        "eslint-plugin-jsx-a11y": "^6.5.1",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-prettier": "^4.0.0",
+        "eslint-plugin-react": "^7.29.4",
+        "parcel-bundler": "^1.12.5",
+        "prettier": "^2.6.2"
+    }
+}
