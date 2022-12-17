@@ -23,16 +23,20 @@ const { urlencoded } = require('body-parser');
 // app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(helmet());
-app.use(cors('*'));
-// app.use(
-//     cors({
-//         origin: '*',
+// app.use(cors('*'));
+app.use(
+    cors({
+        origin: [
+            'http://localhost:3000/Abhishek-stark-reactapp',
+            'https://abhishek-stark.github.io/Abhishek-stark-reactapp/',
+            'http://localhost:3000/',
+        ],
 
-//         methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+        methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
 
-//         exposedHeaders: ['Set-Cookie', 'Date', 'ETag'],
-//     })
-// );
+        exposedHeaders: ['Set-Cookie', 'Date', 'ETag'],
+    })
+);
 
 // 'https://abhishek-stark.github.io/Abhishek-stark-reactapp/'
 
@@ -77,15 +81,15 @@ app.use((req, res, next) => {
 
     next();
 });
-app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader(
-        'Access-Control-Allow-Headers',
-        'Origin,X-Requested-With,Content-Type,Accept,Authorization'
-    );
-    res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PATCH,DELETE');
-    next();
-});
+// app.use((req, res, next) => {
+//     res.setHeader('Access-Control-Allow-Origin', '*');
+//     res.setHeader(
+//         'Access-Control-Allow-Headers',
+//         'Origin,X-Requested-With,Content-Type,Accept,Authorization'
+//     );
+//     res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PATCH,DELETE');
+//     next();
+// });
 
 // 3) ROUTES
 app.use('/api/v1/tours', tourRouter);
