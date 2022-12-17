@@ -4,10 +4,8 @@
     "description": "Shopping website for saving money and time",
     "main": "app.js",
     "scripts": {
-
         "start": "node server.js",
         "dev": "nodemon server.js"
-
     },
     "author": "Abhishek Singh",
     "license": "ISC",
@@ -43,7 +41,7 @@
     },
     "devDependencies": {
         "cross-env": "^7.0.3",
-        "dotenv": "^16.0.1",
+        "dotenv": "^16.0.3",
         "eslint": "^8.15.0",
         "eslint-config-airbnb": "^19.0.4",
         "eslint-config-prettier": "^8.5.0",
