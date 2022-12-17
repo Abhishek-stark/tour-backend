@@ -1,6 +1,6 @@
 /*eslint-disable*/
 const mongoose = require('mongoose');
-const dotenv = require('dotenv');
+const dotenv = require('dotenv').config();
 
 process.on('uncaughtException', (err) => {
     console.log('UNCAUGHT EXCEPTION! 💥 Shutting down...');
@@ -8,7 +8,7 @@ process.on('uncaughtException', (err) => {
     process.exit(1);
 });
 
-dotenv.config({ path: './config.env' });
+// dotenv.config({ path: './config.env' });
 const app = require('./app');
 
 // const DB = 'mongodb://localhost:27017/';
@@ -23,7 +23,7 @@ mongoose
     })
     .then(() => console.log('DB connection successful!'));
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 7000;
 const server = app.listen(port, () => {
     console.log(`App running on port ${port}...`);
 });
