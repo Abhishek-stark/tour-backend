@@ -7,7 +7,7 @@ const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const hpp = require('hpp');
 const cors = require('cors');
-const compression = require('compression');
+// const compression = require('compression');
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
 const tourRouter = require('./routes/tourRoutes');
@@ -17,7 +17,7 @@ const reviewRouter = require('./routes/reviewRoutes');
 const bookingRouter = require('./routes/bookingRoutes');
 const app = express();
 const cookieparser = require('cookie-parser');
-const path = require('path');
+
 const { urlencoded } = require('body-parser');
 
 // app.use(express.static(path.join(__dirname, 'public')));
@@ -66,8 +66,6 @@ app.use(
         ],
     })
 );
-
-app.use(compression());
 
 app.use((req, res, next) => {
     req.requestTime = new Date().toISOString();
