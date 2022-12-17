@@ -25,7 +25,10 @@ const { urlencoded } = require('body-parser');
 app.use(helmet());
 app.use(
     cors({
-        origin: 'https://abhishek-stark.github.io/Abhishek-stark-reactapp/',
+        origin: [
+            'https://abhishek-stark.github.io/Abhishek-stark-reactapp/',
+            'http://localhost:3000/Abhishek-stark-reactapp',
+        ],
         credentials: true,
         exposedHeaders: ['Set-Cookie', 'Date', 'ETag'],
     })
