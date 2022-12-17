@@ -25,15 +25,15 @@ const { urlencoded } = require('body-parser');
 app.use(helmet());
 app.use(
     cors({
-        origin: [
-            'https://abhishek-stark.github.io/Abhishek-stark-reactapp/',
-            'http://localhost:3000/',
-            'https://abhishek-stark.github.io/',
-        ],
+        origin: '*',
+
+        methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
         credentials: true,
         exposedHeaders: ['Set-Cookie', 'Date', 'ETag'],
     })
 );
+
+// 'https://abhishek-stark.github.io/Abhishek-stark-reactapp/'
 
 // if (process.env.NODE_ENV === 'development') {
 //     app.use(morgan('dev'));
