@@ -15,12 +15,13 @@ const userRouter = require('./routes/userRoutes');
 const viewRoutes = require('./routes/viewRoutes');
 const reviewRouter = require('./routes/reviewRoutes');
 const bookingRouter = require('./routes/bookingRoutes');
+const path = require('path');
 const app = express();
 const cookieparser = require('cookie-parser');
 
 const { urlencoded } = require('body-parser');
 
-// app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(helmet());
 
