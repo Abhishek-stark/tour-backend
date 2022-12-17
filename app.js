@@ -27,9 +27,8 @@ app.use(helmet());
 app.use(
     cors({
         origin: [
-            'http://localhost:3000/Abhishek-stark-reactapp',
-            'https://abhishek-stark.github.io/Abhishek-stark-reactapp/',
             'http://localhost:3000/',
+            'https://abhishek-stark.github.io/Abhishek-stark-reactapp/',
         ],
 
         methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
