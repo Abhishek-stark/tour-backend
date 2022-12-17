@@ -28,7 +28,7 @@ app.use(
         origin: '*',
 
         methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-        credentials: true,
+
         exposedHeaders: ['Set-Cookie', 'Date', 'ETag'],
     })
 );
