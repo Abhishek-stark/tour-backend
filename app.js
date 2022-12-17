@@ -27,7 +27,8 @@ app.use(
     cors({
         origin: [
             'https://abhishek-stark.github.io/Abhishek-stark-reactapp/',
-            'http://localhost:3000/Abhishek-stark-reactapp',
+            'http://localhost:3000/',
+            'https://abhishek-stark.github.io/',
         ],
         credentials: true,
         exposedHeaders: ['Set-Cookie', 'Date', 'ETag'],
