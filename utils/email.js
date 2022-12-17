@@ -153,7 +153,7 @@ module.exports = class Email {
         // this.to = user.email;
         this.firstname = user.name.split(' ')[0];
         this.url = url;
-        this.from = `Abhishek <${process.env.Sendin_Email}>`;
+        this.from = 'starkop688@gmail.com';
     }
     newTransport() {
         if (process.env.NODE_ENV === 'production') {
@@ -172,8 +172,10 @@ module.exports = class Email {
             host: 'smtp-relay.sendinblue.com',
             port: 587,
             auth: {
-                user: process.env.Sendin_Email,
-                pass: process.env.Sendin_Smtp_Key,
+                user: 'starkop688@gmail.com',
+                pass: xsmtpsib -
+                    cbfdd360208d8047f4a203fce76db4f5c23402ab0f468ecc6c74090d0667019e -
+                    cACF3nBO2TVj741J,
             },
         });
     }

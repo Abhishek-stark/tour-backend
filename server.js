@@ -11,7 +11,8 @@ process.on('uncaughtException', (err) => {
 const app = require('./app');
 
 // const DB = 'mongodb://localhost:27017/';
-const DB = process.env.DATABASE_CLUSTER;
+const DB =
+    'mongodb+srv://AbhishekSingh:KaranAvi123@cluster0.3yuum.mongodb.net/Tour?retryWrites=true&w=majority';
 
 mongoose
     .connect(DB, {
