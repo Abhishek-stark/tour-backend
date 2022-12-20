@@ -3,7 +3,7 @@ const express = require('express');
 const multer = require('multer');
 const userController = require('./../controllers/userController');
 const authController = require('./../controllers/authController');
-
+const cloudinary = require('cloudinary').v2;
 const router = express.Router();
 
 router.post('/signup', authController.signup);
@@ -11,6 +11,14 @@ router.post('/login', authController.login);
 router.get('/logout', authController.logout);
 router.post('/forgotPassword', authController.forgotPassword);
 router.patch('/resetPassword/:token', authController.resetPassword);
+
+//move it under protect
+// router.patch(
+//     '/updateMe',
+//     userController.uploadUserPhoto,
+
+//     userController.updateMe
+// );
 
 // Protect all routes after this middleware
 router.use(authController.protect);
@@ -28,7 +36,7 @@ router.get(
 );
 router.patch(
     '/updateMe',
-    // userController.uploadUserPhoto,
+    userController.uploadUserPhoto,
     userController.updateMe
 );
 router.delete('/deleteMe', userController.deleteMe);

@@ -6,6 +6,7 @@ const User = require('./../models/userModel');
 const catchAsync = require('./../utils/catchAsync');
 const AppError = require('./../utils/appError');
 const sendEmail = require('./../utils/email');
+
 const cloudinary = require('cloudinary').v2;
 
 cloudinary.config({
@@ -57,28 +58,13 @@ exports.logout = (req, res) => {
 };
 
 exports.signup = catchAsync(async(req, res) => {
-    let imagedata;
-    const file = req.files.photo;
-
-    const response = cloudinary.uploader.upload(file.tempFilePath, {
-        public_id: 'imagedata',
-    });
-    response
-        .then((data) => {
-            console.log(data);
-            console.log(data.secure_url);
-            imagedata = data.secure_url;
-        })
-        .catch((err) => {
-            console.log(err);
-        });
+    const { name, email, password, passwordConfirm, photo } = req.body;
 
     const newUser = await User.create({
-        name: req.body.name,
-        email: req.body.email,
-        password: req.body.password,
-        passwordConfirm: req.body.passwordConfirm,
-        photo: imagedata,
+        name,
+        email,
+        password,
+        passwordConfirm,
     });
 
     const url = `${req.protocol}://${req.get('host')}/me`;
