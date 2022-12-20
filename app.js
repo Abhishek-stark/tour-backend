@@ -16,10 +16,10 @@ const viewRoutes = require('./routes/viewRoutes');
 const reviewRouter = require('./routes/reviewRoutes');
 const bookingRouter = require('./routes/bookingRoutes');
 const path = require('path');
-const app = express();
 const cookieparser = require('cookie-parser');
 
 const { urlencoded } = require('body-parser');
+const app = express();
 
 app.use(express.static(path.join(__dirname, 'public')));
 

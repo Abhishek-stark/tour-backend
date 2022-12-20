@@ -6,29 +6,29 @@ const factory = require('./handlerFactory');
 const multer = require('multer');
 const sharp = require('sharp');
 
-var multerstorage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, 'client_side/public');
-    },
-    filename: (req, file, cb) => {
-        const ext = file.mimetype.split('/')[1];
-        cb(null, `user-${req.user.id}-${Date.now()}.${ext}`);
-    },
-});
+// var multerstorage = multer.diskStorage({
+//     destination: (req, file, cb) => {
+//         cb(null, 'client_side/public');
+//     },
+//     filename: (req, file, cb) => {
+//         const ext = file.mimetype.split('/')[1];
+//         cb(null, `user-${req.user.id}-${Date.now()}.${ext}`);
+//     },
+// });
 
-const multerFilter = (req, file, cb) => {
-    if (file.mimetype.startsWith('image')) {
-        cb(null, true);
-    } else {
-        cb(new AppError('not an image', 400), false);
-    }
-};
-const upload = multer({
-    storage: multerstorage,
-    fileFilter: multerFilter,
-});
+// const multerFilter = (req, file, cb) => {
+//     if (file.mimetype.startsWith('image')) {
+//         cb(null, true);
+//     } else {
+//         cb(new AppError('not an image', 400), false);
+//     }
+// };
+// const upload = multer({
+//     storage: multerstorage,
+//     fileFilter: multerFilter,
+// });
 
-exports.uploadUserPhoto = upload.single('photo');
+// exports.uploadUserPhoto = upload.single('photo');
 // const multerStorage = multer.memoryStorage();
 // const multerFilter = (req, file, cb) => {
 //     if (file.mimetype.startsWith('image')) {

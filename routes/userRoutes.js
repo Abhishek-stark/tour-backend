@@ -28,7 +28,7 @@ router.get(
 );
 router.patch(
     '/updateMe',
-    userController.uploadUserPhoto,
+    // userController.uploadUserPhoto,
     userController.updateMe
 );
 router.delete('/deleteMe', userController.deleteMe);

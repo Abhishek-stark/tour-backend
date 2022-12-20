@@ -6,6 +6,13 @@ const User = require('./../models/userModel');
 const catchAsync = require('./../utils/catchAsync');
 const AppError = require('./../utils/appError');
 const sendEmail = require('./../utils/email');
+const cloudinary = require('cloudinary').v2;
+
+cloudinary.config({
+    cloud_name: 'de5hapncc',
+    api_key: '266626818885881',
+    api_secret: 'q2CrrQ7ULdCwyZIufVNVJAYRCs8',
+});
 
 // const Email = require('./../utils/email');
 const signToken = (id) => {
@@ -50,12 +57,30 @@ exports.logout = (req, res) => {
 };
 
 exports.signup = catchAsync(async(req, res) => {
+    let imagedata;
+    const file = req.files.photo;
+
+    const response = cloudinary.uploader.upload(file.tempFilePath, {
+        public_id: 'imagedata',
+    });
+    response
+        .then((data) => {
+            console.log(data);
+            console.log(data.secure_url);
+            imagedata = data.secure_url;
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+
     const newUser = await User.create({
         name: req.body.name,
         email: req.body.email,
         password: req.body.password,
         passwordConfirm: req.body.passwordConfirm,
+        photo: imagedata,
     });
+
     const url = `${req.protocol}://${req.get('host')}/me`;
     // await new Email(newUser, url).sendWelcome();
     createSendToken(newUser, 201, res);

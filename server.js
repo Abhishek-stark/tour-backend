@@ -1,13 +1,14 @@
 /*eslint-disable*/
 const mongoose = require('mongoose');
+const fileupload = require('express-fileupload');
 // const dotenv = require('dotenv');
 // dotenv.config();
 
-process.on('uncaughtException', (err) => {
-    console.log('UNCAUGHT EXCEPTION! 💥 Shutting down...');
-    console.log(err.name, err.message);
-    process.exit(1);
-});
+// process.on('uncaughtException', (err) => {
+//     console.log('UNCAUGHT EXCEPTION! 💥 Shutting down...');
+//     console.log(err.name, err.message);
+//     process.exit(1);
+// });
 
 const app = require('./app');
 
@@ -23,6 +24,12 @@ mongoose
         useUnifiedTopology: true,
     })
     .then(() => console.log('DB connection successful!'));
+
+app.use(
+    fileupload({
+        useTempFiles: true,
+    })
+);
 
 const port = process.env.PORT || 7000;
 const server = app.listen(port, () => {
