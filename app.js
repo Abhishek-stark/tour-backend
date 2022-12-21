@@ -28,6 +28,7 @@ app.use(helmet());
 const allowedOrigins = [
     'http://localhost:3000',
     'https://abhishek-stark.github.io/Abhishek-stark-reactapp/',
+    'https://abhishek-stark.github.io',
 ];
 const corsOptions = {
     origin: (origin, callback) => {
