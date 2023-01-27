@@ -1,8 +1,9 @@
 /*eslint-disable*/
 const mongoose = require('mongoose');
 
-// const dotenv = require('dotenv');
-// dotenv.config();
+const dotenv = require('dotenv');
+dotenv.config();
+// require(dotenv).config();
 
 // process.on('uncaughtException', (err) => {
 //     console.log('UNCAUGHT EXCEPTION! 💥 Shutting down...');

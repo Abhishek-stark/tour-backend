@@ -1,6 +1,9 @@
 /*eslint-disable*/
 const express = require('express');
 const morgan = require('morgan');
+const dotenv = require('dotenv');
+dotenv.config();
+// require(dotenv).config();
 const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
