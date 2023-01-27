@@ -1,8 +1,5 @@
 /*eslint-disable*/
-// const stripe = require('stripe')(process.env.STRIPE_SECRETKEY);
-const stripe = require('stripe')(
-    'sk_test_51LhXM5SBrxf9grZutuAMUzUyj91pssJqEXXt0V7dMdrGZB2AQluLT82owrF7jxOt4gGhy4XRfQoS2ME5j90MSvBg00muSm88kG'
-);
+const stripe = require('stripe')(process.env.STRIPE_SECRETKEY);
 
 const catchAsync = require('../utils/catchAsync');
 const factory = require('./handlerFactory');

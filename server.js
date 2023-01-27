@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 
 const dotenv = require('dotenv');
 dotenv.config();
-// require(dotenv).config();
 
 // process.on('uncaughtException', (err) => {
 //     console.log('UNCAUGHT EXCEPTION! 💥 Shutting down...');
@@ -14,8 +13,7 @@ dotenv.config();
 const app = require('./app');
 
 // const DB = 'mongodb://localhost:27017/';
-const DB =
-    'mongodb+srv://AbhishekSingh:KaranAvi123@cluster0.3yuum.mongodb.net/Tour?retryWrites=true&w=majority';
+const DB = process.env.MongoDb_pass;
 
 mongoose
     .connect(DB, {

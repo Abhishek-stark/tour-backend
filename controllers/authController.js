@@ -17,11 +17,9 @@ cloudinary.config({
 
 // const Email = require('./../utils/email');
 const signToken = (id) => {
-    return jwt.sign({ id },
-        'my_life_my-rule-who_the-fuck-@you-are_this_is-$enough-@long', {
-            expiresIn: '90d',
-        }
-    );
+    return jwt.sign({ id }, process.env.JWT_SECRET, {
+        expiresIn: process.env.JWT_EXPIRES_IN,
+    });
 };
 
 const createSendToken = (user, statusCode, res) => {
@@ -110,10 +108,7 @@ exports.protect = catchAsync(async(req, res, next) => {
     }
 
     // 2) Verification token
-    const decoded = await promisify(jwt.verify)(
-        token,
-        'my_life_my-rule-who_the-fuck-@you-are_this_is-$enough-@long'
-    );
+    const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
 
     // 3) Check if user still exists
     const currentUser = await User.findById(decoded.id);
@@ -145,7 +140,7 @@ exports.isLoggedIn = catchAsync(async(req, res, next) => {
         // 2) Verification token
         const decoded = await promisify(jwt.verify)(
             req.cookies.jwt,
-            'my_life_my-rule-who_the-fuck-@you-are_this_is-$enough-@long'
+            process.env.JWT_SECRET
         );
 
         // 3) Check if user still exists
