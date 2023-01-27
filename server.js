@@ -16,7 +16,7 @@ const app = require('./app');
 const DB = process.env.MongoDb_pass;
 
 mongoose
-    .connect(DB, {
+    .connect(process.env.DATABASE_CLUSTER, {
         useNewUrlParser: true,
         useCreateIndex: true,
         useFindAndModify: false,
